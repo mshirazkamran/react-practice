@@ -1,0 +1,147 @@
+/* Navbar.css */
+
+/* --- Base Styles & Variables --- */
+/* Define custom properties (variables) for consistent styling */
+:root {
+    --primary-bg: #2c3e50; /* Deep charcoal/midnight blue */
+    --accent-color: #1abc9c; /* Vibrant teal for highlights */
+    --text-light: #ecf0f1; /* Soft white for main text on dark background */
+    --text-dark: #34495e; /* Darker grey for content text on light background */
+    --hover-light: #a0e9fd; /* Lighter accent for hover states */
+    --transition-speed: 0.3s ease-in-out; /* Standard transition duration and easing */
+}
+
+/* Basic body styling for overall app look */
+body {
+    margin: 0; /* Remove default body margin */
+    font-family: 'Inter', sans-serif; /* Use Inter for a modern look */
+    background-color: #0d0c0c; /* Light background for the page */
+    color: var(--text-dark); /* Default text color */
+}
+
+/* --- Navbar Container --- */
+.navbar {
+    background-color: var(--primary-bg); /* Apply primary background color */
+    padding: 15px 25px; /* Vertical and horizontal padding */
+    display: flex; /* Use flexbox for horizontal alignment */
+    justify-content: space-between; /* Distribute space between brand and nav links */
+    align-items: center; /* Vertically align items in the center */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    position: sticky; /* Makes the navbar stick to the top when scrolling */
+    top: 0; /* Align to the very top of the viewport */
+    width: 100%; 
+    z-index: 1000; /* Ensure it stays on top of other content */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+    border-bottom-left-radius: 8px; /* Rounded corners for the bottom edges */
+    border-bottom-right-radius: 8px;
+}
+
+/* --- Navbar Brand/Logo --- */
+.navbar-brand {
+    color: var(--accent-color); /* Apply vibrant accent color to brand text */
+    text-decoration: none; /* Remove default underline from link */
+    font-size: 1.8rem; /* Larger font size for prominence */
+    font-weight: 700; /* Bold font weight */
+    letter-spacing: 0.5px; /* Slight letter spacing for visual appeal */
+    transition: color var(--transition-speed); /* Smooth color transition on hover */
+}
+
+.navbar-brand:hover {
+    color: var(--hover-light); /* Lighter accent color on hover */
+}
+
+/* --- Navigation Links List --- */
+.navbar-nav {
+    list-style: none; /* Remove bullet points from list items */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox for horizontal layout of nav items */
+    align-items: center; /* Vertically align nav items */
+}
+
+/* --- Individual Navigation List Item --- */
+.nav-item {
+    margin-left: 35px; /* Space between navigation items */
+}
+
+/* --- Navigation Links --- */
+.nav-link {
+    color: var(--text-light); /* White text for links */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.1rem; /* Font size for links */
+    font-weight: 500; /* Medium font weight */
+    padding: 8px 0; /* Increased vertical padding for better click area */
+    position: relative; /* Needed for the underline effect */
+    transition: color var(--transition-speed); /* Smooth color transition on hover */
+    letter-spacing: 0.2px; /* Slight letter spacing */
+}
+
+/* Underline effect on hover for nav links */
+.nav-link::after {
+    content: ''; /* Create a pseudo-element for the underline */
+    position: absolute; /* Position relative to the parent link */
+    width: 0; /* Start with no width */
+    height: 3px; /* Thicker underline */
+    bottom: -5px; /* Position slightly below the text */
+    left: 50%; /* Start from the center */
+    transform: translateX(-50%); /* Center the underline */
+    background-color: var(--accent-color); /* Accent color for the underline */
+    border-radius: 2px; /* Rounded corners for the underline */
+    transition: width var(--transition-speed); /* Smooth width transition */
+}
+
+.nav-link:hover::after {
+    width: 100%; /* Expand underline to full width on hover */
+}
+
+.nav-link:hover {
+    color: var(--accent-color); /* Change text color to accent on hover */
+}
+
+/* --- Responsive Design (Mobile First Approach) --- */
+
+/* Adjustments for screens smaller than 768px (e.g., tablets and mobiles) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: flex-start; /* Align items to the start */
+        padding: 15px 20px;
+        border-radius: 0; /* No rounded corners on mobile for full width */
+    }
+
+    .navbar-brand {
+        margin-bottom: 15px; /* Add space below the brand when stacked */
+        font-size: 1.5rem; /* Slightly smaller font for brand on mobile */
+    }
+
+    .navbar-nav {
+        flex-direction: column; /* Stack nav items vertically */
+        width: 100%; /* Full width for nav items */
+        text-align: center; /* Center text within nav items */
+    }
+
+    .nav-item {
+        margin: 0; /* Remove horizontal margin */
+        width: 100%; /* Each nav item takes full width */
+        border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator for items */
+    }
+
+    .nav-item:first-child {
+        border-top: none; /* No top border for the first item */
+    }
+
+    .nav-link {
+        display: block; /* Make links fill the width of their list item */
+        padding: 15px 20px; /* Larger padding for better touch targets */
+    }
+
+    /* Remove underline effect for mobile links for a cleaner look */
+    .nav-link::after {
+        display: none;
+    }
+
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1); /* Subtle background highlight on hover/tap */
+        color: var(--accent-color); /* Keep text color change on hover */
+    }
+}
