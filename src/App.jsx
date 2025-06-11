@@ -1,5 +1,7 @@
 import { useState } from "react";
+import Card from "./Card";
 import "./css/App.css";
+
 
 function App() {
   const [counter, setCounter] = useState(15);
@@ -34,6 +36,7 @@ function App() {
       <button className="btn" onClick={decrementValue} type="button">
         Decrease Value
       </button>
+      <Card name="LOL" link="https://google.com" btnText="CLICKKK" appointment="Nurse" ></Card>
     </>
   );
 }
