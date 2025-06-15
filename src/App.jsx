@@ -29,11 +29,11 @@ function App() {
           {counter}
         </span>{" "}
       </h3>
-      <button className="btn" onClick={incrementValue} type="button">
+      <button className="btn" onClick={() => incrementValue()} type="button">
         Increase value
       </button>
-      <br />
-      <button className="btn" onClick={decrementValue} type="button">
+      <br /> {/* also be done as onClick = {decrementValue} */}
+      <button className="btn" onClick={() => decrementValue()} type="button">
         Decrease Value
       </button>
       <Card name="LOL" link="https://google.com" btnText="CLICKKK" appointment="Nurse" ></Card>
